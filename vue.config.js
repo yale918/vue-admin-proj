@@ -17,6 +17,8 @@ const port = process.env.port || process.env.npm_config_port || 9528 // dev port
 
 // All configuration item explanations can be find in https://cli.vuejs.org/config/
 module.exports = {
+
+
   /**
    * You will need to set publicPath if you plan to deploy your site under a sub path,
    * for example GitHub Pages. If you plan to deploy your site to https://foo.github.io/bar/,
@@ -24,7 +26,14 @@ module.exports = {
    * In most cases please use '/' !!!
    * Detail: https://cli.vuejs.org/config/#publicpath
    */
-  publicPath: '/',
+
+   publicPath: process.env.NODE_ENV === 'production'
+   ? '/vue-admin-proj'
+   : '/'
+   ,
+   
+  /////////////
+
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
